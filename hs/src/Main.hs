@@ -9,5 +9,6 @@ main = do
   scotty 3000 $ do
     get "/caw/:caw_count" $ do
       count <- param "caw_count"
-      json (object [ "noises" .= (replicate count payload)]) where
+      json (object [ "noises" .= (replicate count payload)])
+      where
         payload = "caw" :: String
