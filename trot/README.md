@@ -1,19 +1,8 @@
 # ElixirCaw
+elixir/trot implementation of my crow service
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `elixir_caw` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [{:elixir_caw, "~> 0.1.0"}]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/elixir_caw](https://hexdocs.pm/elixir_caw).
-
+to run:
+ 0. `mix deps.get`
+ 1. `mix compile`
+ 2. `iex -S mix`
+ 3. navigate to `127.0.0.1:4000/caw/10`
