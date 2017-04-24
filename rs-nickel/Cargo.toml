@@ -1,0 +1,11 @@
+[package]
+name = "rs-nickel"
+version = "0.1.0"
+authors = ["mike stedman <github@ravuya.com>"]
+
+[dependencies]
+rustc-serialize = "*"
+hyper = "0.10.9"
+
+[dependencies.nickel]
+version = "*"
