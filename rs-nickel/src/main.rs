@@ -6,7 +6,6 @@ use std::collections::BTreeMap;
 use nickel::{Nickel, HttpRouter};
 use rustc_serialize::json::{Json, ToJson};
 
-#[derive(RustcDecodable, RustcEncodable)]
 struct CrowFacts {
     noises: Vec<String>
 }
@@ -29,10 +28,9 @@ fn replicate<T : Clone>(item : T, count : u32) -> Vec<T> {
 
 fn main() {
     let mut server = Nickel::new();
-    //server.utilize(explicit_router());
 
     server.get("/caw/:caw_count", middleware! { |request|
-        match request.param("caw_count") {
+        let content = match request.param("caw_count") {
             Some(raw_caw_count) => match raw_caw_count.parse::<u32>() {
                 Ok(caw_count)   => {
                     let facts = CrowFacts {
@@ -43,7 +41,8 @@ fn main() {
                 Err(_)          => "not a valid number of caws.".to_json() // TODO: throw 500?
             },
             None => "need to provide caw_count parameter.".to_json()
-        }
+        };
+        content.to_string()
     });
 
     server.listen("127.0.0.1:6767").unwrap();
